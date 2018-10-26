@@ -89,12 +89,6 @@ class BasePayment extends \Magento\Payment\Model\Method\AbstractMethod
         \Magento\Framework\Data\Collection\AbstractDb $resourceCollection = null,
         array $data = []
     ) {
-        $this->collectorConfig = $collectorConfig;
-        $this->apiRequest = $apiRequest;
-        $this->logger = $logger;
-        $this->collectorSession = $_collectorSession;
-        $this->helper = $_helper;
-        $this->clientFactory = $clientFactory;
         parent::__construct(
             $context,
             $registry,
@@ -107,6 +101,12 @@ class BasePayment extends \Magento\Payment\Model\Method\AbstractMethod
             $resourceCollection,
             $data
         );
+        $this->collectorConfig = $collectorConfig;
+        $this->apiRequest = $apiRequest;
+        $this->logger = $logger;
+        $this->collectorSession = $_collectorSession;
+        $this->helper = $_helper;
+        $this->clientFactory = $clientFactory;
     }
 
     private function getB2BrB2CStoreId(&$order)
